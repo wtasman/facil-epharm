@@ -1,0 +1,5 @@
+drug - Ambien
+instructions - take one pill before bed
+drug interactions - adderall aspirin ativan cymbalta flexeril gabapentin klonopin lexapro lisinopril lyrica metformin norco omeprazole oxycodone synthroid tramadol trazodone vitamin D3 Xanax Zoloft
+disease interactions - Alcohol & Drug abuse depression Liver Disease Glaucoma Respiratory Depression Renal Dysfunction
+side effects - chest pain confusion increased heart rate fever irritability lack of appetite shakiness tiredness trembling anxiety chills dysphoria fainting paranoia hallucinations
