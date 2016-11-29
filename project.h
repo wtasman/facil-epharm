@@ -4,27 +4,22 @@
 # include "libft/libft.h"
 # include "get_next_line.h"
 
-// Pending prototype ideas //
-
 typedef struct		s_drug
 {
 	char			*name;
 	char			*ins;
-	char			**drugi;	//drug interaction
-	char			**diseasei;	//disease interation
-	char			**se;		//side effects
+	char			**drugi;
+	char			**diseasei;
+	char			**se;
 	struct s_drug	*next;
 }					t_drug;
 
-typedef struct		s_ptnt		//patient
+typedef struct		s_ptnt
 {
 	char			*name;
-	char			**pres;		//prescription
-	char			**cur_med;	//current medication
-	char			**disease;	//disease and complication
-	struct s_ptnt	*next;
+	char			**pres;
+	char			**cur_med;
+	char			**disease;
 }					t_ptnt;
-
-// please input your opinion //
 
 #endif
