@@ -1,4 +1,4 @@
-Bob Smith
-medication to fill - Accupril
-meidication on - Eplerenone
-disease and complications - Heart disease
+Patient Name - Bob Smith
+Prescription - Accupril
+Current Medication - Eplerenone
+Diseases & Complications - heart disease

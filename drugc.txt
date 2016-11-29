@@ -1,4 +1,5 @@
-Vicodin
+Drug Name - Vicodin
 Instructions - Store at room temperature, take exactly as prescribed. Do not stop after long-term use.
-Drug interactions - Ambien, metformin, aspirin, Neurontin, Cymbalta, omeprazole, Flexeril, prednisone, gabapentin
-Side effects - Dizziness, lightheadedness
+Drug interactions - Ambien, Metformin, Aspirin, Neurontin, Cymbalta, Omeprazole, Flexeril, Prednisone, Gabapentin
+Disease Interactions - none
+Side effects - dizziness, lightheadedness

@@ -1,4 +1,5 @@
-Zepatier
+Drug Name - Zepatier
 Instructions - Take at the same time each day. Store at room temperature.
-Drug interactions - Aspirin, Paroxetine, Palvix, cyproheptadine, gabapentin, pravastatin, isosorbide, Ranexa, Lasix, ranitidne, lorazepam, ribavirin, magnesium chloride, Synthroid, metoprolol, tempazepam, Novolin, Valerian, pantoprzole, vitamin d
-Side effects - dark urine, fever, chills, stools, loss of apetite, nausea and vomiting, tiredness, upper stomach pain, yellow eyes
+Drug interactions - Aspirin, Paroxetine, Palvix, cyproheptadine, gabapentin, pravastatin, isosorbide, Ranexa, Lasix, ranitidne, lorazepam, ribavirin, magnesium chloride, Synthroid, metoprolol, tempazepam, Novolin, Valerian, Pantoprzole, Vitamin D
+Disease Interactions - none
+Side Effects - dark urine, fever, chills, stools, loss of apetite, nausea and vomiting, tiredness, upper stomach pain, yellow eyes
