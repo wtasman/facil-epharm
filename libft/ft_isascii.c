@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dmclaugh <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: wasman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/10/21 10:55:11 by dmclaugh          #+#    #+#             */
-/*   Updated: 2016/11/28 23:02:56 by wasman           ###   ########.fr       */
+/*   Created: 2016/09/22 17:49:06 by wasman            #+#    #+#             */
+/*   Updated: 2016/09/27 01:28:58 by wasman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "libft.h"
 
-# define BUFF_SIZE 32
-
-# include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
-
-int					get_next_line(const int fd, char **line);
-
-#endif
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
