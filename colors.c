@@ -20,12 +20,12 @@ void	instructions(char *instructions)
 	printf(INSTRUCTIONS "%s\n" ANSI_COLOR_RESET, instructions);
 }
 
-void	drug_clear()
+void	drug_clear(void)
 {
 	printf(OK "No drug conflicts!\n" ANSI_COLOR_RESET);
 }
 
-void	side_clear()
+void	side_clear(void)
 {
 	printf(OK "No side effect conflicts!\n" ANSI_COLOR_RESET);
 }

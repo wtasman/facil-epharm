@@ -12,53 +12,68 @@
 
 #include "project.h"
 
-static void	disease_cmp(char **di, char **ptnt)
+static size_t	disease_cmp(char **di, char **ptnt)
 {
 	size_t	id;
 	size_t	ip;
+	size_t	count;
 
 	ip = 0;
+	count = 0;
 	while (ptnt[ip])
 	{
 		id = 0;
 		while (di[id])
 		{
 			if (!ft_strcmp(di[id], ptnt[ip]))
+			{
 				side_conflict(di[id]);
+				count++;
+			}
 			id++;
 		}
 		ip++;
 	}
+	return (count);
 }
 
-static void	se_cmp(char **se, char **ptnt)
+static size_t	se_cmp(char **se, char **ptnt)
 {
 	size_t	is;
 	size_t	ip;
+	size_t	count;
 
 	ip = 0;
+	count = 0;
 	while (ptnt[ip])
 	{
 		is = 0;
 		while (se[is])
 		{
 			if (!ft_strcmp(se[is], ptnt[ip]))
+			{
 				side_conflict(se[is]);
+				count++;
+			}
 			is++;
 		}
 		ip++;
 	}
+	return (count);
 }
 
-void		dis_se_cmp(t_drug *pres, t_ptnt *patient)
+void			dis_se_cmp(t_drug *presc, t_ptnt *patient)
 {
-	t_drug	*tpres;
+	t_drug	*tpresc;
 
-	tpres = pres;
-	while (tpres)
+	tpresc = presc;
+	while (tpresc)
 	{
-		disease_cmp(tpres->diseasei, patient->disease);
-		se_cmp(tpres->se, patient->disease);
-		tpres = tpres->next;
+		drug_name(tpresc->name);
+		compare_drug_interaction(presc, patient);
+		if(!(disease_cmp(tpresc->diseasei, patient->disease))
+			&& !(se_cmp(tpresc->se, patient->disease)))
+			side_clear();
+		tpresc = tpresc->next;
 	}
 }
