@@ -74,6 +74,7 @@ void			dis_se_cmp(t_drug *presc, t_ptnt *patient)
 		if(!(disease_cmp(tpresc->diseasei, patient->disease))
 			&& !(se_cmp(tpresc->se, patient->disease)))
 			side_clear();
+		instructions(tpresc->ins);
 		tpresc = tpresc->next;
 	}
 }

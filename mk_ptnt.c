@@ -54,7 +54,7 @@ t_ptnt	*mk_ptnt(int fd)
 		return (NULL);
 	i = -1;
 	while (tab[++i] != NULL)
-	   tab[i] = ft_strtrim(tab[i]);	
+	   tab[i] = ft_strtrim(tab[i]);
 	ptnt->pres = tab;
 	if (!(get_next_line(fd, &str)))
 		return (NULL);

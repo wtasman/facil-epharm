@@ -1,23 +1,23 @@
 #include "project.h"
 
-void		ft_drugdel(t_drug *druglist)
+void		ft_drugdel(t_drug **druglist)
 {
 	int		i;
 
-	free(druglist->name);
-	free(druglist->ins);
+	free((*druglist)->name);
+	free((*druglist)->ins);
 	i = -1;
-	while (druglist->drugi[++i])
-		free(druglist->drugi[i]);
+	while ((*druglist)->drugi[++i])
+		free((*druglist)->drugi[i]);
 	i = -1;
-	while (druglist->diseasei[++i])
-		free(druglist->diseasei[++i]);
+	while ((*druglist)->diseasei[++i])
+		free((*druglist)->diseasei[++i]);
 	i = -1;
-	while (druglist->se[++i])
-		free(druglist->se[i]);
-	if (druglist->next != NULL)
-		ft_drugdel(druglist->next);
-	free (druglist);
+	while ((*druglist)->se[++i])
+		free((*druglist)->se[i]);
+	if ((*druglist)->next != NULL)
+		ft_drugdel(&((*druglist)->next));
+	free (*druglist);
 }
 
 t_drug		*ft_drugnew(int fd)
@@ -98,6 +98,7 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	i = 0;
 	while (patientfile->pres[++i])
 	{
+		ft_putstr("working\n");
 		fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY);
 		if (fd == -1)
 			return (NULL);
