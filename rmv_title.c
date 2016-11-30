@@ -2,8 +2,8 @@
 
 char	*rmv_title(char *str)
 {
-	int i;
-	char *tmp;
+	int 	i;
+	char	*tmp;
 
 	i = 0;
 	while (str[i])
