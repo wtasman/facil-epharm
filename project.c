@@ -20,5 +20,6 @@ int	main(int arc, char **arv)
 	if (!presc)
 		return (1);
 	dis_se_cmp(presc, patient);
+	freepatient(&patient);
 	return (0);
 }
