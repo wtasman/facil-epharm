@@ -1,16 +1,5 @@
-#include <stdio.h>
-
-#define WARNING     "\x1b[31m"
-#define OK   "\x1b[32m"
-#define INSTRUCTIONS  "\x1b[33m"
-#define ANSI_COLOR_BLUE    "\x1b[34m"
-#define DRUG_NAME "\x1b[35m"
-#define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
-
-
 //Print drug name
-//WARNING: conflict with OTHER DRUG
+//WARNING: conflict with OTHER DRUG 
 //Print instructions
 void	drug_name(char *drug)
 {
