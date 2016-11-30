@@ -5,16 +5,16 @@
 # include "get_next_line.h"
 #include <stdio.h>
 
+#define ANSI_COLOR_RESET   "\x1b[0m"
+#define DRUG_NAME "\x1b[35m"
 #define WARNING     "\x1b[31m"
-#define OK   "\x1b[32m"
 #define INSTRUCTIONS  "\x1b[33m"
+#define OK   "\x1b[32m"
 /*
 printf(INSTRUCTIONS     "TAKE BEFORE BED WITH DRINK"     ANSI_COLOR_RESET "\n");
 */
 #define ANSI_COLOR_BLUE    "\x1b[34m"
-#define ANSI_COLOR_MAGENTA "\x1b[35m"
 #define ANSI_COLOR_CYAN    "\x1b[36m"
-#define ANSI_COLOR_RESET   "\x1b[0m"
 
 typedef struct		s_drug
 {
