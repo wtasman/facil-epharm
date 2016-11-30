@@ -34,4 +34,6 @@ typedef struct		s_ptnt
 	char			**disease;
 }					t_ptnt;
 
+char	*rmv_title(char *str);
+
 #endif
