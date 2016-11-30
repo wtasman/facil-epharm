@@ -1,4 +1,4 @@
 Patient Name - Bob Smith
-Prescription - Accupril
+Prescription - Accupril, Vicodin, Zepatier
 Current Medication - Eplerenone
 Diseases & Complications - heart disease
