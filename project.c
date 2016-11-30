@@ -19,6 +19,6 @@ int	main(int arc, char **arv)
 		return (1);
 	dis_se_cmp(presc, patient);
 	freepatient(&patient);
-	ft_drugdel(&presc);
+//	ft_drugdel(&presc);
 	return (0);
 }

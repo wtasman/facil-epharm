@@ -33,17 +33,20 @@ t_drug		*ft_drugnew(int fd)
 	if (!(str = rmv_title(str)))
 		return (NULL);
 	newdrug->name = ft_strdup(str);
+	free(str);
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!(str = rmv_title(str)))
 		return (NULL);
 	newdrug->ins = ft_strdup(str);
+	free(str);
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!(str = rmv_title(str)))
 		return (NULL);
 	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
+	free(str);
 	i = -1;
 	while (tab[++i])
 		if (!(tab[i] = ft_strtrim(tab[i])))
@@ -55,7 +58,7 @@ t_drug		*ft_drugnew(int fd)
 		return (NULL);
 	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
-	ft_putstr(newdrug->name);	//this prints the drug name correctly
+	free(str);
 	i = -1;
 	while (tab[++i])
 		if(!(tab[i] = ft_strtrim(tab[i])))
@@ -67,14 +70,14 @@ t_drug		*ft_drugnew(int fd)
 		return (NULL);
 	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
-	ft_putstr(newdrug->name);	//this prints gibberish instead of the drug name
+	free(str);
 	i = -1;
 	while (tab[++i])
 	{
 		if (!(tab[i] = ft_strtrim(tab[i])))
 			return (NULL);
 	}
-	newdrug->se = tab;
+//	newdrug->se = tab;
 	if (i == -1)
 		return (NULL);
 	newdrug->next = NULL;
