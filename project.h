@@ -35,5 +35,6 @@ typedef struct		s_ptnt
 }					t_ptnt;
 
 char	*rmv_title(char *str);
+t_ptnt	*mk_ptnt(int fd);
 
 #endif
