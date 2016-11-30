@@ -40,7 +40,7 @@ t_ptnt	*mk_ptnt(int fd)
 	int		k;
 
 	k = 0;
-	str = rmv_title(str);
+	// str = rmv_title(str);
 	ptnt = (t_ptnt*)malloc(sizeof(t_ptnt));
 	get_next_line(fd, &str);
 	str = rmv_title(str);

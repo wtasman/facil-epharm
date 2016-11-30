@@ -27,7 +27,7 @@ void compare_drug_interaction(t_drug *druglist, t_ptnt *patient)
     {
       if (ft_strcmp(druglist->drugi[i], patient->pres[j]) == 0)
       {
-        drug_conflict(drugi[i]);
+        drug_conflict(druglist->drugi[i]);
         counter++;
       }
       j++;
@@ -40,9 +40,9 @@ void compare_drug_interaction(t_drug *druglist, t_ptnt *patient)
     j = 0;
     while (patient->pres[j])
     {
-      if (ft_strcmp(druglist->drugi[i], patient->curr_med[j]) == 0)
+      if (ft_strcmp(druglist->drugi[i], patient->cur_med[j]) == 0)
       {
-        drug_conflict(drugi[i]);
+        drug_conflict(druglist->drugi[i]);
         counter++;
       }
       j++;

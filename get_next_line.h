@@ -16,8 +16,6 @@
 # define BUFF_SIZE 32
 
 # include "libft/libft.h"
-# include <stdlib.h>
-# include <unistd.h>
 
 int					get_next_line(const int fd, char **line);
 

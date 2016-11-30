@@ -39,7 +39,8 @@ void				instructions(char *instructions);
 void				drug_clear(void);
 void				side_clear(void);
 void 				compare_drug_interaction(t_drug *druglist, t_ptnt *patient);
-void				dis_se_cmp(t_drug *pres, t_ptnt patient);
+void				dis_se_cmp(t_drug *presc, t_ptnt *patient);
 void				freepatient(t_ptnt **patient);
+void				ft_drugdel(t_drug *druglist);
 
 #endif

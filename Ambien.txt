@@ -1,0 +1,5 @@
+Drug Name - Ambien
+Instructions - Take one pill before bed.
+Drug Interactions - Adderall, Aspirin, Ativan, Cymbalta, Flexeril, Gabapentin, Klonopin, Lexapro, Lisinopril, Lyrica, Metformin, Norco, Omeprazole, Oxycodone, Synthroid, Tramadol, Trazodone, Vitamin D3, Xanax, Zoloft
+Disease Interactions - alcohol & drug abuse, depression, liver disease, glaucoma, respiratory depression, renal dysfunction
+Side Effects - chest pain, confusion, increased heart rate, fever, irritability, lack of appetite, shakiness, tiredness, trembling, anxiety, chills, dysphoria, fainting, paranoia, hallucinations
