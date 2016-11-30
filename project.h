@@ -5,16 +5,16 @@
 # include "get_next_line.h"
 #include <stdio.h>
 
-// #define WARNING     "\x1b[31m"
-// #define OK   "\x1b[32m"
-// #define INSTRUCTIONS  "\x1b[33m"
-
-// printf(INSTRUCTIONS     "TAKE BEFORE BED WITH DRINK"     ANSI_COLOR_RESET "\n");
-
-// #define ANSI_COLOR_BLUE    "\x1b[34m"
-// #define ANSI_COLOR_MAGENTA "\x1b[35m"
-// #define ANSI_COLOR_CYAN    "\x1b[36m"
-// #define ANSI_COLOR_RESET   "\x1b[0m"
+#define ANSI_COLOR_RESET   "\x1b[0m"
+#define DRUG_NAME "\x1b[35m"
+#define WARNING     "\x1b[31m"
+#define INSTRUCTIONS  "\x1b[33m"
+#define OK   "\x1b[32m"
+/*
+printf(INSTRUCTIONS     "TAKE BEFORE BED WITH DRINK"     ANSI_COLOR_RESET "\n");
+*/
+#define ANSI_COLOR_BLUE    "\x1b[34m"
+#define ANSI_COLOR_CYAN    "\x1b[36m"
 
 typedef struct		s_drug
 {
@@ -34,6 +34,7 @@ typedef struct		s_ptnt
 	char			**disease;
 }					t_ptnt;
 
+char				*rmv_title(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 void				dis_se_cmp(t_drug *pres, t_ptnt patient);
 
