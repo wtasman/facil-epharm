@@ -1,23 +1,23 @@
 #include "project.h"
 
-void		ft_drugdel(t_drug *druglist)
+void		ft_drugdel(t_drug **druglist)
 {
 	int		i;
 
-	free(druglist->name);
-	free(druglist->ins);
+	free((*druglist)->name);
+	free((*druglist)->ins);
 	i = -1;
-	while (druglist->drugi[++i])
-		free(druglist->drugi[i]);
+	while ((*druglist)->drugi[++i])
+		free((*druglist)->drugi[i]);
 	i = -1;
-	while (druglist->diseasei[++i])
-		free(druglist->diseasei[++i]);
+	while ((*druglist)->diseasei[++i])
+		free((*druglist)->diseasei[++i]);
 	i = -1;
-	while (druglist->se[++i])
-		free(druglist->se[i]);
-	if (druglist->next != NULL)
-		ft_drugdel(druglist->next);
-	free (druglist);
+	while ((*druglist)->se[++i])
+		free((*druglist)->se[i]);
+	if ((*druglist)->next != NULL)
+		ft_drugdel(&((*druglist)->next));
+	free (*druglist);
 }
 
 t_drug		*ft_drugnew(int fd)
@@ -65,8 +65,10 @@ t_drug		*ft_drugnew(int fd)
 		return (NULL);
 	i = -1;
 	while (newdrug->se[++i])
+	{
 		if (!(newdrug->se[i] = ft_strtrim(newdrug->se[i])))
 			return (NULL);
+	}
 	if (i == -1)
 		return (NULL);
 	newdrug->next = NULL;
@@ -86,10 +88,19 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	int		i;
 	t_drug	*druglist;
 
-	i = -1;
+	fd = open(ft_strjoin(patientfile->pres[0], ".txt"), O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	druglist = ft_drugnew(fd);
+	if (!druglist)
+		return (NULL);
+	close(fd);
+	i = 0;
 	while (patientfile->pres[++i])
 	{
-		if (!(fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY)))
+		ft_putstr("working\n");
+		fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY);
+		if (fd == -1)
 			return (NULL);
 		ft_drugadd(&druglist, ft_drugnew(fd));
 		close(fd);

@@ -1,4 +1,0 @@
-Patient Name - Bob Smith
-Prescription - Accupril
-Current Medication - Eplerenone
-Diseases & Complications - heart disease

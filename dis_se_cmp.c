@@ -70,10 +70,11 @@ void			dis_se_cmp(t_drug *presc, t_ptnt *patient)
 	while (tpresc)
 	{
 		drug_name(tpresc->name);
-		compare_drug_interaction(presc, patient);
+		compare_drug_interaction(tpresc, patient);
 		if(!(disease_cmp(tpresc->diseasei, patient->disease))
 			&& !(se_cmp(tpresc->se, patient->disease)))
 			side_clear();
+		instructions(tpresc->ins);
 		tpresc = tpresc->next;
 	}
 }
