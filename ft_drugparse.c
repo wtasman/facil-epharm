@@ -11,7 +11,7 @@ void		ft_drugdel(t_drug **druglist)
 		free((*druglist)->drugi[i]);
 	i = -1;
 	while ((*druglist)->diseasei[++i])
-		free((*druglist)->diseasei[++i]);
+		free((*druglist)->diseasei[i]);
 	i = -1;
 	while ((*druglist)->se[++i])
 		free((*druglist)->se[i]);
