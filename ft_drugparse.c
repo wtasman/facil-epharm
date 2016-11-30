@@ -26,9 +26,9 @@ t_drug		*ft_drugnew(int fd)
 	int		i;
 	t_drug	*newdrug;
 
+	newdrug = (t_drug*)malloc(sizeof(newdrug));
 	if (!get_next_line(fd, &str))
 		return (NULL);
-	newdrug = (t_drug*)malloc(sizeof(newdrug));
 	if (!rmv_title(str))
 		return (NULL);
 	newdrug->name = str;
@@ -89,7 +89,7 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	i = -1;
 	while (patientfile->pres[++i])
 	{
-		if (!(fd = open(patientfile->pres[i], O_RDONLY)))
+		if (!(fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY)))
 			return (NULL);
 		ft_drugadd(&druglist, ft_drugnew(fd));
 		close(fd);
