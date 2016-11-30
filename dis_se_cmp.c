@@ -50,15 +50,15 @@ static void	se_cmp(char **se, char **ptnt)
 	}
 }
 
-void		dis_se_cmp(t_drug *pres, t_ptnt patient)
+void		dis_se_cmp(t_drug *pres, t_ptnt *patient)
 {
 	t_drug	*tpres;
 
 	tpres = pres;
 	while (tpres)
 	{
-		disease_cmp(pres->diseasei, patient->disease);
-		se_cmp(pres->se, patient->disease);
+		disease_cmp(tpres->diseasei, patient->disease);
+		se_cmp(tpres->se, patient->disease);
 		tpres = tpres->next;
 	}
 }
