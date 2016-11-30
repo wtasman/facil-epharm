@@ -38,6 +38,7 @@ t_ptnt	*mk_ptnt(int fd)
 	char	**tab;
 	int		i;
 
+<<<<<<< HEAD
 	if(!(ptnt = (t_ptnt*)malloc(sizeof(t_ptnt))))
 		return (NULL);
 	if (!(get_next_line(fd, &str)))
@@ -52,6 +53,17 @@ t_ptnt	*mk_ptnt(int fd)
 		return (NULL);
 	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
+=======
+	k = 0;
+	// str = rmv_title(str);
+	ptnt = (t_ptnt*)malloc(sizeof(t_ptnt));
+	get_next_line(fd, &str);
+	str = rmv_title(str);
+	ptnt->name = str;
+	get_next_line(fd, &str);
+	str = rmv_title(str);
+	tab = ft_strsplit(str, ',');
+>>>>>>> 804c360cd9b470b8ef87f7f1e3fb93cce673a5bf
 	i = -1;
 	while (tab[++i] != NULL)
 	   tab[i] = ft_strtrim(tab[i]);	
