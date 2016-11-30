@@ -3,6 +3,26 @@
 #include "libft/libft.h"
 #include "project.h"
 
+void		ft_drugdel(t_drug *druglist)
+{
+	int		i;
+
+	free(druglist->name);
+	free(druglist->ins);
+	i = -1;
+	while (druglist->drugi[++i])
+		free(druglist->drugi[i]);
+	i = -1;
+	while (druglist->diseasei[++i])
+		free(druglist->diseasei[++i]);
+	i = -1;
+	while (druglist->se[++i])
+		free(druglist->se[i]);
+	if (druglist->next != NULL)
+		ft_drugdel(druglist->next);
+	free (druglist);
+}
+
 t_drug		*ft_drugnew(int fd)
 {
 	char	*str;
