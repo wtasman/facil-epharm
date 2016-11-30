@@ -12,31 +12,43 @@
 
 #include "project.h"
 
-void compare_drug_interaction(t_drug *presc, t_drug *currmed)
+void compare_drug_interaction(t_drug *druglist, t_ptnt *patient)
 {
-  t_drug *pcurr;
-  t_drug *cmcurr;
   size_t i;
   size_t j;
+  size_t counter;
 
   i = 0;
-  pcurr = presc;
-  cmcurr = currmed;
-  while (pcurr)
+  counter = 0;
+  while (druglist->drugi[i])
   {
-    while (cmcurr)
+    j = 0;
+    while (patient->pres[j])
     {
-      i = 0;
-      j = 0;
-      while (pres != NULL && currmed != NULL)
+      if (ft_strcmp(druglist->drugi[i], patient->pres[j]) == 0)
       {
-        if (ft_strcmp(presc->pres[i], currmed->drugi[j]) == 0)
-          drug_conflict(drugi[j]);
-          i++;
-          j++;
+        drug_conflict(drugi[i]);
+        counter++;
       }
-      cmcurr = cmcurr->next;
+      j++;
     }
-    pcurr = pcurr->next;
+    i++;
   }
+  i = 0;
+  while (druglist->drugi[i])
+  {
+    j = 0;
+    while (patient->pres[j])
+    {
+      if (ft_strcmp(druglist->drugi[i], patient->curr_med[j]) == 0)
+      {
+        drug_conflict(drugi[i]);
+        counter++;
+      }
+      j++;
+    }
+    i++;
+  }
+  if (counter == 0)
+    drug_clear(drugi[i]);
 }

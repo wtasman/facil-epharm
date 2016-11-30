@@ -9,32 +9,51 @@ t_drug		*ft_drugnew(int fd)
 	int		i;
 	t_drug	*newdrug;
 
-	get_next_line(fd, &str);
-	rmv_title(str);
-	newdrug->name = ft_strdup(str);
-	get_next_line(fd, &str);
-	rmv_title(str);
-	newdrug->ins = ft_strdup(str);
-	get_next_line(fd, &str);
-	rmv_title(str);
-	newdrug->drugi = ft_strsplit(str, ',');
+	if (!get_next_line(fd, &str))
+		return (NULL);
+	if (!rmv_title(str))
+		return (NULL);
+	newdrug->name = str;
+	if (!get_next_line(fd, &str))
+		return (NULL);
+	if (!rmv_title(str))
+		return (NULL);
+	newdrug->ins = str;
+	if (!get_next_line(fd, &str))
+		return (NULL);
+	if (!rmv_title(str))
+		return (NULL);
+	if (!(newdrug->drugi = ft_strsplit(str, ',')))
+		return (NULL);
 	i = -1;
 	while (newdrug->drugi[++i])
-		newdrug->drugi[i] = ft_strtrim(newdrug->drugi[i]);
-	get_next_line(fd, &str);
-	rmv_title(str);
-	newdrug->diseasei = ft_strsplit(str, ',');
+		if (!(newdrug->drugi[i] = ft_strtrim(newdrug->drugi[i])))
+			return (NULL);
+	free(str);
+	if (!get_next_line(fd, &str))
+		return (NULL);
+	if (!rmv_title(str))
+		return (NULL);
+	if (!(newdrug->diseasei = ft_strsplit(str, ',')))
+		return (NULL);
 	i = -1;
 	while (newdrug->diseasei[++i])
-		newdrug->diseasei[i] = ft_strtrim(newdrug->diseasei[i]);
-	get_next_line(fd, &str);
-	rmv_title(str);
-	newdrug->se = ft_strsplit(str, ',');
+		if(!(newdrug->diseasei[i] = ft_strtrim(newdrug->diseasei[i])))
+			return (NULL);
+	if (!get_next_line(fd, &str))
+		return (NULL);
+	if (!rmv_title(str))
+		return (NULL);
+	if (!(newdrug->se = ft_strsplit(str, ',')))
+		return (NULL);
 	i = -1;
 	while (newdrug->se[++i])
-		newdrug->se[i] = ft_strtrim(newdrug->se[i]);
-	while (get_next_line(fd, &str))
-		;
+		if (!(newdrug->se[i] = ft_strtrim(newdrug->se[i])))
+			return (NULL);
+	while ((i = get_next_line(fd, &str)))
+			;
+	if (i == -1)
+		return (NULL);
 	newdrug->next = NULL;
 	return (newdrug);
 }
@@ -56,8 +75,10 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	i = -1;
 	while (patientfile->pres[++i])
 	{
-		fd = open(patientfile->pres[i], O_RDONLY);
-		ft_drugadd(&druglist, ft_drugnew(fd));
+		if (!(fd = open(patientfile->pres[i], O_RDONLY)))
+			return (NULL);
+		if (!(ft_drugadd(&druglist, ft_drugnew(fd))))
+			return (NULL);
 		close(fd);
 	}
 	return (druglist);
