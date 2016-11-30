@@ -24,6 +24,7 @@ t_drug		*ft_drugnew(int fd)
 {
 	char	*str;
 	int		i;
+	char	**tab;
 	t_drug	*newdrug;
 
 	newdrug = (t_drug*)malloc(sizeof(newdrug));
@@ -41,36 +42,39 @@ t_drug		*ft_drugnew(int fd)
 		return (NULL);
 	if (!(str = rmv_title(str)))
 		return (NULL);
-	if (!(newdrug->drugi = ft_strsplit(str, ',')))
+	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
 	i = -1;
-	while (newdrug->drugi[++i])
-		if (!(newdrug->drugi[i] = ft_strtrim(newdrug->drugi[i])))
+	while (tab[++i])
+		if (!(tab[i] = ft_strtrim(tab[i])))
 			return (NULL);
+	newdrug->drugi = tab;
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!(str = rmv_title(str)))
 		return (NULL);
-	if (!(newdrug->diseasei = ft_strsplit(str, ',')))
+	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
 	ft_putstr(newdrug->name);	//this prints the drug name correctly
 	i = -1;
-	while (newdrug->diseasei[++i])
-		if(!(newdrug->diseasei[i] = ft_strtrim(newdrug->diseasei[i])))
+	while (tab[++i])
+		if(!(tab[i] = ft_strtrim(tab[i])))
 			return (NULL);
+	newdrug->diseasei = tab;
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!(str = rmv_title(str)))
 		return (NULL);
-	if (!(newdrug->se = ft_strsplit(str, ',')))
+	if (!(tab = ft_strsplit(str, ',')))
 		return (NULL);
 	ft_putstr(newdrug->name);	//this prints gibberish instead of the drug name
 	i = -1;
-	while (newdrug->se[++i])
+	while (tab[++i])
 	{
-		if (!(newdrug->se[i] = ft_strtrim(newdrug->se[i])))
+		if (!(tab[i] = ft_strtrim(tab[i])))
 			return (NULL);
 	}
+	newdrug->se = tab;
 	if (i == -1)
 		return (NULL);
 	newdrug->next = NULL;
