@@ -34,7 +34,6 @@ typedef struct		s_ptnt
 	char			**disease;
 }					t_ptnt;
 
-
 char				*rmv_title(char *str);
 int					ft_strcmp(const char *s1, const char *s2);
 void				dis_se_cmp(t_drug *pres, t_ptnt patient);
