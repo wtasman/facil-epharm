@@ -1,3 +1,5 @@
+#include "project.h"
+
 void	drug_name(char *drug)
 {
 	printf(DRUG_NAME "Prescribed Drug: %s\n" ANSI_COLOR_RESET, drug);
