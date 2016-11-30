@@ -36,8 +36,8 @@ void				drug_name(char *drug);
 void				drug_conflict(char *conflict);
 void				side_conflict(char *conflict);
 void				instructions(char *instructions);
-void				drug_clear();
-void				side_clear();
+void				drug_clear(void);
+void				side_clear(void);
 void				dis_se_cmp(t_drug *pres, t_ptnt patient);
 
 #endif
