@@ -10,25 +10,25 @@ t_drug		*ft_drugnew(int fd)
 	t_drug	*newdrug;
 
 	get_next_line(fd, &str);
-	//dash trim
+	rmv_title(str);
 	newdrug->name = ft_strdup(str);
 	get_next_line(fd, &str);
-	//dash trim
+	rmv_title(str);
 	newdrug->ins = ft_strdup(str);
 	get_next_line(fd, &str);
-	//dash trim
+	rmv_title(str);
 	newdrug->drugi = ft_strsplit(str, ',');
 	i = -1;
 	while (newdrug->drugi[++i])
 		newdrug->drugi[i] = ft_strtrim(newdrug->drugi[i]);
 	get_next_line(fd, &str);
-	//dash trim
+	rmv_title(str);
 	newdrug->diseasei = ft_strsplit(str, ',');
 	i = -1;
 	while (newdrug->diseasei[++i])
 		newdrug->diseasei[i] = ft_strtrim(newdrug->diseasei[i]);
 	get_next_line(fd, &str);
-	//dash trim
+	rmv_title(str);
 	newdrug->se = ft_strsplit(str, ',');
 	i = -1;
 	while (newdrug->se[++i])

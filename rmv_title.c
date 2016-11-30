@@ -1,3 +1,5 @@
+#include "project.h"
+
 char	*rmv_title(char *str)
 {
 	int i;
