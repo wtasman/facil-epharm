@@ -12,14 +12,18 @@ HDRS = ./*.h \
 
 OBJS = ./*.o \
 
+GSHS = ./*.gch \
+		./libft/*.gch
+
 $(NAME): 
-	@$(CC) $(CFLAGS) -c $(SRCS) -I $(HDRS)
+	@$(CC) $(CFLAGS) -c $(SRCS)
 	@$(CC) -o $(NAME) $(OBJS)
 
 all: $(NAME)
 
 clean:
 	@/bin/rm -f $(OBJS)
+	@/bin/rm -f $(GSHS)
 
 fclean: clean
 	@/bin/rm -f $(NAME)

@@ -65,8 +65,10 @@ t_drug		*ft_drugnew(int fd)
 		return (NULL);
 	i = -1;
 	while (newdrug->se[++i])
+	{
 		if (!(newdrug->se[i] = ft_strtrim(newdrug->se[i])))
 			return (NULL);
+	}
 	if (i == -1)
 		return (NULL);
 	newdrug->next = NULL;
@@ -86,10 +88,18 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	int		i;
 	t_drug	*druglist;
 
-	i = -1;
+	fd = open(ft_strjoin(patientfile->pres[0], ".txt"), O_RDONLY);
+	if (fd == -1)
+		return (NULL);
+	druglist = ft_drugnew(fd);
+	if (!druglist)
+		return (NULL);
+	close(fd);
+	i = 0;
 	while (patientfile->pres[++i])
 	{
-		if (!(fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY)))
+		fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY);
+		if (fd == -1)
 			return (NULL);
 		ft_drugadd(&druglist, ft_drugnew(fd));
 		close(fd);
