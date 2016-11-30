@@ -84,7 +84,7 @@ SOURCES =	ft_putchar.c\
 			ft_isupper.c\
 			ft_islower.c\
 			ft_sort_list.c\
-			get_next_line.c
+			ft_tabinit.c
 
 OBJ =	$(SOURCES:.c=.o)
 

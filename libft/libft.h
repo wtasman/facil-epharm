@@ -6,7 +6,7 @@
 /*   By: wasman <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/21 09:25:16 by wasman            #+#    #+#             */
-/*   Updated: 2016/11/28 23:35:22 by wasman           ###   ########.fr       */
+/*   Updated: 2016/11/29 20:42:19 by wasman           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,6 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 int					ft_isupper(int c);
 int					ft_islower(int c);
 t_list				*ft_sort_list(t_list* lst, int (*cmp)(void *, void *));
-int					get_next_line(int fd, char **line);
+char				**ft_tabinit(size_t count, size_t len);
 
 #endif

@@ -29,6 +29,7 @@ typedef struct		s_ptnt
 }					t_ptnt;
 
 char				*rmv_title(char *str);
+t_ptnt				*mk_ptnt(int fd);
 t_drug				*ft_drugparse(t_ptnt *patientfile);
 int					ft_strcmp(const char *s1, const char *s2);
 void				drug_name(char *drug);
