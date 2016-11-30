@@ -1,7 +1,24 @@
-#include "fcntl.h"
-#include "get_next_line.h"
-#include "libft/libft.h"
 #include "project.h"
+
+void		ft_drugdel(t_drug *druglist)
+{
+	int		i;
+
+	free(druglist->name);
+	free(druglist->ins);
+	i = -1;
+	while (druglist->drugi[++i])
+		free(druglist->drugi[i]);
+	i = -1;
+	while (druglist->diseasei[++i])
+		free(druglist->diseasei[++i]);
+	i = -1;
+	while (druglist->se[++i])
+		free(druglist->se[i]);
+	if (druglist->next != NULL)
+		ft_drugdel(druglist->next);
+	free (druglist);
+}
 
 t_drug		*ft_drugnew(int fd)
 {
@@ -9,6 +26,7 @@ t_drug		*ft_drugnew(int fd)
 	int		i;
 	t_drug	*newdrug;
 
+	newdrug = (t_drug*)malloc(sizeof(newdrug));
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!rmv_title(str))
@@ -29,7 +47,6 @@ t_drug		*ft_drugnew(int fd)
 	while (newdrug->drugi[++i])
 		if (!(newdrug->drugi[i] = ft_strtrim(newdrug->drugi[i])))
 			return (NULL);
-	free(str);
 	if (!get_next_line(fd, &str))
 		return (NULL);
 	if (!rmv_title(str))
@@ -50,8 +67,6 @@ t_drug		*ft_drugnew(int fd)
 	while (newdrug->se[++i])
 		if (!(newdrug->se[i] = ft_strtrim(newdrug->se[i])))
 			return (NULL);
-	while ((i = get_next_line(fd, &str)))
-			;
 	if (i == -1)
 		return (NULL);
 	newdrug->next = NULL;
@@ -67,7 +82,6 @@ void		ft_drugadd(t_drug **drug, t_drug *new)
 
 t_drug		*ft_drugparse(t_ptnt *patientfile)
 {
-	char	*str;
 	int		fd;
 	int		i;
 	t_drug	*druglist;
@@ -75,31 +89,10 @@ t_drug		*ft_drugparse(t_ptnt *patientfile)
 	i = -1;
 	while (patientfile->pres[++i])
 	{
-		if (!(fd = open(patientfile->pres[i], O_RDONLY)))
+		if (!(fd = open(ft_strjoin(patientfile->pres[i], ".txt"), O_RDONLY)))
 			return (NULL);
-		if (!(ft_drugadd(&druglist, ft_drugnew(fd))))
-			return (NULL);
+		ft_drugadd(&druglist, ft_drugnew(fd));
 		close(fd);
 	}
 	return (druglist);
 }
-
-/*
-#include <stdio.h>	//REMOVE
-int		main(void)
-{
-	t_ptnt	*patientzero;
-	t_drug	*cure;
-
-	patientzero = (t_ptnt *)malloc(sizeof(t_ptnt));
-	patientzero->name = "Bob Smith";
-	patientzero->pres[1] = {"Accupril",};
-	printf("hello world\n");
-	patientzero->cur_med[1] = {"Eplerenone",};
-	patientzero->disease[1] = {"heart disease",};
-	printf("%s %s %s %s\n", patientzero->name, patientzero->pres[0], patientzero->cur_med[0], patientzero->disease[0]);
-	cure = ft_drugparse(patientzero);
-	printf("%s, %s, %s, %s %s %s %s\n", (cure->name), cure->ins, cure->drugi[0], cure->diseasei[0], cure->se[0], cure->se[1], cure->se[2]);
-	return (0);
-}
-*/

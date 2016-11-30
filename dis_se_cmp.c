@@ -34,6 +34,7 @@ static size_t	disease_cmp(char **di, char **ptnt)
 		}
 		ip++;
 	}
+	return (count);
 }
 
 static size_t	se_cmp(char **se, char **ptnt)
@@ -65,7 +66,7 @@ void			dis_se_cmp(t_drug *presc, t_ptnt *patient)
 {
 	t_drug	*tpresc;
 
-	tpres = presc;
+	tpresc = presc;
 	while (tpresc)
 	{
 		drug_name(tpresc->name);
