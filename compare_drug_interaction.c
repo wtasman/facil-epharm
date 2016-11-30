@@ -50,5 +50,5 @@ void compare_drug_interaction(t_drug *druglist, t_ptnt *patient)
     i++;
   }
   if (counter == 0)
-    drug_clear(drugi[i]);
+    drug_clear();
 }
