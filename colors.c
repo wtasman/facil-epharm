@@ -12,7 +12,7 @@ void	drug_conflict(char *conflict)
 
 void	side_conflict(char *conflict)
 {
-	printf(WARNING "WARNING: patent already has %s" ANSI_COLOR_RESET "\n", conflict);
+	printf(WARNING "WARNING: patient already has %s" ANSI_COLOR_RESET "\n", conflict);
 }
 
 void	instructions(char *instructions)
